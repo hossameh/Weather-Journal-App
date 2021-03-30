@@ -3,9 +3,10 @@ const baseUrl='http://api.openweathermap.org/data/2.5/weather?zip=';
 const appKey='&appid=a713fb484fccd4229d435f8cfb36e9cd';
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 // 
 const zipTxt = document.querySelector("#zip");
+const feelingTxt = document.querySelector("#feelings");
 const generateButton = document.querySelector("#generate");
 if(generateButton)
 {
@@ -20,7 +21,7 @@ if(zipTxt && zipTxt.value)
     .then(res=>{
         if(res)
         {
-            postWizard('/addWizard',{temperature:res.main.temp,date:newDate,userResponse:res})
+            postWizard('/addWizard',{temperature:res.main.temp,date:newDate,userResponse:feelingTxt.value})
             .then(resPost=>{
                 if(resPost)
                 {
@@ -92,9 +93,9 @@ const updateUI = (data={})=>
 {
     try{
     if(data){
-    document.querySelector("#date").innerHTML = data.date;
-    document.querySelector("#temp").innerHTML = data.temperature;
-    document.querySelector("#content").innerHTML =json.stringify(data.userResponse);
+    document.querySelector("#date").innerHTML ='Date: '+ data.date;
+    document.querySelector("#temp").innerHTML ='Temperature: '+ data.temperature;
+    document.querySelector("#content").innerHTML ='Feeling today: ' +data.userResponse;
     }}
     catch(error)
     {console.log('Update UI error:'+error);}

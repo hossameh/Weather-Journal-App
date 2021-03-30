@@ -21,7 +21,7 @@ app.use(express.static('website'));
 const server= app.listen(port,callbackListener);
 // Add get API to get Wizard object
 app.get('/getWizard',(req,res)=>{
-    res.send(JSON.stringify(projectData));
+    res.send(projectData);
 });
 // add POST API to add Wizard
 app.post('/addWizard',(req,res)=>{

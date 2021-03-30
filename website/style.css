@@ -55,10 +55,10 @@ label{
 
 input{
     display:block;
-    height: 60px;
-    width: 320px;
+    height: 30px;
+    width: 150px;
     background:#22b2da;
-    color: #f0d43a;
+    color: #2c2603;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
@@ -80,7 +80,7 @@ h1{
 
 textarea{
     background:#22b2da;
-    color: #f0d43a;
+    color: #332c05;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
@@ -93,19 +93,19 @@ button:focus {
 }
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
+    color: #bdbbb0; 
     font-family: 'Oswald', sans-serif;
 
 } 
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
+    color: #b8b6b0; 
     font-family: 'Oswald', sans-serif;
 
 } 
   
 ::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
+    color: #c5c3b8; 
     font-family: 'Oswald', sans-serif;
 
 } 

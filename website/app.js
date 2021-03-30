@@ -4,3 +4,98 @@ const appKey='&appid=a713fb484fccd4229d435f8cfb36e9cd';
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+// 
+const zipTxt = document.querySelector("#zip");
+const generateButton = document.querySelector("#generate");
+if(generateButton)
+{
+    generateButton.addEventListener('click',callback);
+}
+
+function callback()
+{
+if(zipTxt && zipTxt.value)
+{
+    WeatherMap(baseUrl,appKey,zipTxt.value)
+    .then(res=>{
+        if(res)
+        {
+            postWizard('/addWizard',{temperature:res.main.temp,date:newDate,userResponse:res})
+            .then(resPost=>{
+                if(resPost)
+                {
+                    getWizard('/getWizard')
+                    .then(resGet=>{
+                        if(resGet)
+                            {
+                             updateUI(resGet);
+                            }
+                    })
+                }
+            })
+        }
+    });
+}
+}
+
+// OpenWeatherMap API.
+const WeatherMap = async (url='',appKey='',zip='')=>
+{
+const res = await fetch(url+zip+appKey);
+
+try {
+
+    const data = await res.json();
+    return data;
+    console.log(data);
+    
+  }  catch(error) {
+    // appropriately handle the error
+    console.log("error", error);
+  }
+
+}
+
+const getWizard = async(apiURL)=>
+{
+    const res = await fetch(apiURL);
+    try{
+    const data = await res.json();
+    return data;
+    }
+    catch(error){
+        // appropriately handle the error
+        console.log('Get Wizard Error:'+error);
+    }
+    
+}
+
+const postWizard = async (apiURL='',data={})=>
+{
+const res = await fetch(apiURL,{
+    method: 'POST', 
+    credentials: 'same-origin', 
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data), // body data type must match "Content-Type" header        
+  });
+  try{
+     // const data = await res.json();
+      return res;
+  }
+  catch(error)
+  {console.log('Post Error:'+error);}
+}
+
+const updateUI = (data={})=>
+{
+    try{
+    if(data){
+    document.querySelector("#date").innerHTML = data.date;
+    document.querySelector("#temp").innerHTML = data.temperature;
+    document.querySelector("#content").innerHTML =json.stringify(data.userResponse);
+    }}
+    catch(error)
+    {console.log('Update UI error:'+error);}
+}

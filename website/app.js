@@ -19,7 +19,7 @@ if(zipTxt && zipTxt.value)
 {
     WeatherMap(baseUrl,appKey,zipTxt.value)
     .then(res=>{
-        if(res)
+        if(res && res.cod==200)
         {
             postWizard('/addWizard',{temperature:res.main.temp,date:newDate,userResponse:feelingTxt.value})
             .then(resPost=>{
@@ -34,10 +34,15 @@ if(zipTxt && zipTxt.value)
                     })
                 }
             })
+        }else
+        {
+            updateUI(null);
+            alert('City not found !');
         }
     });
 }else
 {
+    updateUI(null);
     alert('Please Provide valid Zip Code !');
 }
 }
@@ -99,7 +104,13 @@ const updateUI = (data={})=>
     document.querySelector("#date").innerHTML ='Date: '+ data.date;
     document.querySelector("#temp").innerHTML ='Temperature: '+ data.temperature;
     document.querySelector("#content").innerHTML ='Feeling today: ' +data.userResponse;
-    }}
+    }else
+    { 
+        document.querySelector("#date").innerHTML='';
+    document.querySelector("#temp").innerHTML ='';
+    document.querySelector("#content").innerHTML ='';
+    }
+    }
     catch(error)
     {console.log('Update UI error:'+error);}
 }

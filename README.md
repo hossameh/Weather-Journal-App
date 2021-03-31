@@ -1,32 +1,39 @@
 # Weather-Journal-App
 
 ### About
-- Programatically build Navigation menu at run time based on HTML page sections.
-- Smooth move between HTML page sections.
+- Weather Journal App consume public weather API using certian city Zip code,
+  and store the weather details to our local object via local web API built by NodeJs.
 
 ### Technologies
 
+- [NodeJs] - for local server web API. [ECMA6.0]
+- [NPM] - Node Package Management for install the needed plugins like express.
 - [JavaScript] - For all HTML page actions and events. [ECMA6.0]
 - [HTML5] - for building the web page.
 - [CSS3] - for styling the HTML page
 
 ### Structure
-
-#### css
-- styles.css    
-#### index.html
-
-#### js
-- app.js
-#### README.md
+```bash
+├── Weather-Journal-App
+|   ├── website
+|   |   css
+│   │   └── style.css
+│   ├── index.html
+│   ├── js
+│   │   ├── app.js
+│   │   └── vanilla.js
+├── node_modules
+├── LICENSE
+├── package-lock.json
+├── README.md
+└── server.js
+```
 
 ### Features
-- Build Navigation menu automatically at run time based on HTML page sections.
-- Smooth scroll between sections.
-- Navigation menu responsive based on screen size.
-- Scroll to Top button.
-- Automatic activate menu link based on window scrolling and the displayed section.
-
+- Provide real time weather information using city Zip code. 
+- Robust local web API using NodeJs.
+- Style the UI in fancy and usable display.
+- Validate on city Zip code at run time.
 
 
 

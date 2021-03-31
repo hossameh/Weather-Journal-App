@@ -13,16 +13,21 @@
 - [CSS3] - for styling the HTML page
 
 ### Structure
-
-#### server.js
-
-#### website
-- styles.css    
-#### index.html
-
-#### js
-- app.js
-#### README.md
+```bash
+├── Weather-Journal-App
+|   ├── website
+|   |   css
+│   │   └── style.css
+│   ├── index.html
+│   ├── js
+│   │   ├── app.js
+│   │   └── vanilla.js
+├── node_modules
+├── LICENSE
+├── package-lock.json
+├── README.md
+└── server.js
+```
 
 ### Features
 - Build Navigation menu automatically at run time based on HTML page sections.

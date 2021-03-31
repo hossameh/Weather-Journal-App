@@ -36,6 +36,9 @@ if(zipTxt && zipTxt.value)
             })
         }
     });
+}else
+{
+    alert('Please Provide valid Zip Code !');
 }
 }
 

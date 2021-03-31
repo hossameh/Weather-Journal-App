@@ -6,13 +6,17 @@
 
 ### Technologies
 
+- [NodeJs] - for local server web API. [ECMA6.0]
+- [NPM] - Node Package Management for install the needed plugins like express.
 - [JavaScript] - For all HTML page actions and events. [ECMA6.0]
 - [HTML5] - for building the web page.
 - [CSS3] - for styling the HTML page
 
 ### Structure
 
-#### css
+#### server.js
+
+#### website
 - styles.css    
 #### index.html
 

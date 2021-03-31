@@ -79,3 +79,6 @@ input:-webkit-autofill:focus {
     word-break: normal;
     word-spacing: 2px;
 }
+.celisus {
+  content: "\2103";
+}
